@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: site
+    container_name: apache-3IW
+    ports :
+     - "80:80"
+    volumes:
+     - ${PWD}/www:/var/www/html/
+     - ${PWD}/server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+     - ${PWD}/server/apache2.conf:/etc/apache2/apache2.conf
+     - ${PWD}/server/php.ini:/usr/local/etc/php/php.ini
+
+      
