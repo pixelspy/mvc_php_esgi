@@ -1,0 +1,22 @@
+"/":
+  controller: Pages
+  action: default
+  security: false
+
+"/register":
+  controller: Users
+  action: register
+
+"/login":
+  controller: Users
+  action: login
+
+"/forgot_password":
+  controller: Users
+  action: forgetPassword
+
+"/list_of_users":
+  controller: Users
+  action: default
+  security: true
+  method: GET
