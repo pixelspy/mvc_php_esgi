@@ -4,7 +4,7 @@ services:
     build: site
     container_name: apache-3IW
     ports :
-     - "80:80"
+     - "83:80"
     volumes:
      - ${PWD}/www:/var/www/html/
      - ${PWD}/server/000-default.conf:/etc/apache2/sites-available/000-default.conf
@@ -12,7 +12,7 @@ services:
      - ${PWD}/server/php.ini:/usr/local/etc/php/php.ini
     depends_on:
          - database
-
+# nom du serveur
   database:
     image: mysql:5.7
     container_name: mysql-mvc
@@ -22,6 +22,9 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
     volumes:
+# persistance des données :
+#var/lib/mysql contient toutes mes tables
+# un dossier db_data a été crée dans mon dossier
       - ${PWD}/db_data:/var/lib/mysql
     restart: always
 

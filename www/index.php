@@ -1,4 +1,5 @@
 <?php
+require "./.conf.inc.php"; // contient toutes les constantes
 
 function myAutoloader($class){
   $pathCore = "core/".$class.".class.php";
@@ -19,10 +20,9 @@ spl_autoload_register("myAutoloader");
 // header("Location: http://www.google.fr");
 
 // utilisation de la variable super globale SERVER
-// SuperGlobal variable sont créer par le serveur et alimenté aussi par le serveur
+// SuperGlobal variable sont crées par le serveur et alimentées aussi par le serveur
 // on ne doit que les consulter
 // Elles commencent par $_ et sont en majuscules :
-
 $slug = $_SERVER["REQUEST_URI"];
 // echo $slug;
 
@@ -38,7 +38,7 @@ $route = Routing::getRoute($slug);
 if(is_null($route)){
   die("L'url n'existe pas");
 };
-extract($route); // tranform array in multitude variables
+extract($route); // transform array in multitude variables
 
 
 if (file_exists($controllerPath)) {
